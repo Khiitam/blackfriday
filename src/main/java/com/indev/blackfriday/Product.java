@@ -5,7 +5,7 @@ public class Product {
     String type;
     int quantity;
 
-    public Product(int price, String type, int quantity) {
+    public Product(int quantity, String type, int price) {
         this.price = price;
         this.type = type;
         this.quantity = quantity;
@@ -31,7 +31,8 @@ public class Product {
         this.type = type;
     }
 
-    public void setQuantity(int quantity) {
+    public int setQuantity(int quantity) {
         this.quantity = quantity;
+        return quantity;
     }
 }

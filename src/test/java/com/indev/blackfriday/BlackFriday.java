@@ -100,4 +100,6 @@ public class BlackFriday {
         assertThat(salePrice, is(1100f));
         assertThat(company.totalAssets(), is(1122));
     }
+
+
 }

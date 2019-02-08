@@ -11,24 +11,48 @@ public class Company {
 
 
 
-    public void stock(int price, String type, int quantity) {
+    public void stock(int quantity, String type, int price) {
 
-        Product product = new Product(price,type,quantity);
+        Product product = new Product(quantity,type,price);
         stock.put(type,product);
 
     }
 
 
 
+
+
     public int totalAssets() {
         int totalProducts=0;
         for (Map.Entry<String, Product> entry : stock.entrySet()) {
-            int sommeProducts =  ( entry.getValue().getPrice() )  *   ( entry.getValue().getQuantity() ) ;
+            int sommeProducts = (int) (( entry.getValue().getPrice()   *   entry.getValue().getQuantity() ) + sells(entry.getKey())) ;
             totalProducts= totalProducts+sommeProducts;
         }
-        return totalProducts;
+        return totalProducts ;
     }
 
+    public float sells(String capsule) {
+        float saleprice1=0;
+        for (Map.Entry<String, Product> entry : stock.entrySet()) {
+         if(entry.getKey().equals("capsule")){
+            float price=entry.getValue().getPrice();
+            int quantity = entry.getValue().setQuantity(entry.getValue().getQuantity()-5) ;
+            return (5f*price*1.2f);
+
+         }
+
+
+        }
+
+
+        return  0;
+
+    }
+    public void salesHistory(){
+
+
+
+    }
 
 
 
@@ -47,7 +71,5 @@ public class Company {
         return this;
     }
 
-    public float sells(String capsule) {
-        return 0;
-    }
+
 }
